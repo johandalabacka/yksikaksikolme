@@ -53,11 +53,11 @@
   async function start() {
     running.value = true
     await nextTick()
-    answerInput.value?.focus()
     nextNumber()
   }
 
   async function nextNumber() { 
+    answerInput.value?.focus()
     n = Math.floor(Math.random() * 100)
     asString.value = numberToFinnish(n)
     await say(asString.value)
