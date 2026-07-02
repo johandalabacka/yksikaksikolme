@@ -22,7 +22,6 @@ const asString = ref('')
 
 
 const running = ref(false)
-const showNumber = ref(false)
 const answer = ref('')
 
 const numberStore = useNumberStore()
