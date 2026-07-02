@@ -1,9 +1,8 @@
-
-
 const synth = window.speechSynthesis
 let voice: SpeechSynthesisVoice | null = null
 
-export default async function say(s: string): Promise<void> {
+export default async function say(s: string, rate: number): Promise<void> {
+
   if (!voice) {
     const voices = synth.getVoices() // .find(v => v.lang === 'fi')
     voice = voices.find(v => v.name === 'Satu' || v.name === 'Satu (Finska (Finland))') ?? null
@@ -28,7 +27,7 @@ export default async function say(s: string): Promise<void> {
     };
 
     // utterThis.pitch = pitch.value;
-    // utterThis.rate = rate.value;
+    utterThis.rate = rate;
     synth.speak(utterThis)
   })
 }
